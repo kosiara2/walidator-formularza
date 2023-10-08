@@ -49,7 +49,8 @@ h1 {
 }
 
 .form-box.error input {
-  background-color: aqua;
+  background-color: rgb(203, 31, 12);
+  border: 1px solid rgb(178, 130, 67);
 }
 
 .form-box .error-text {
@@ -59,13 +60,13 @@ h1 {
   color: aqua;
   visibility: hidden;
 }
-.form-box.error .error-text {
+.form-boxerror .error-text {
   visibility: visible;
 }
 
-.control-button {
+.control-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .send,
