@@ -46,15 +46,36 @@ const checkPassword = (pass1, pass2) => {
   }
 };
 
+const checkEmail = (email) => {
+  const reg = /^[A-Z0-9]+@[A-Z0-9]+.[A-Z]{2,3}$/i;
+  if (reg.test(email.value)) {
+    cleanError(email);
+  } else {
+    showError(email, "wrong email");
+  }
+};
+
+const checkErrors = () => {
+  let errorCount = 0;
+  const allInputs = document.querySelectorAll(".form-box");
+  allInputs.forEach((input) => {
+    if (input.classList.contains("error")) {
+      errorCount++;
+    }
+  });
+};
+
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
   checkForm([user, password, password2, email]);
   checkLength(user, 4);
   checkLength(password, 8);
   checkPassword(password, password2);
+  checkEmail(email);
 });
 
 clearBtn.addEventListener("click", (e) => {
   e.preventDefault();
   [user, password, password2, email].forEach((el) => (el.value = ""));
+  cleanError(el);
 });
